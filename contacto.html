@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Contenido de la página Contacto -->
+            <section class="contact-section">
+                <h1>Contacto</h1>
+                <form id="contact-form" action="process_contact.php" method="post">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+        
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Formulario de contacto JavaScript -->
+        <script src="contacto.js"></script>
+        <script src="dark-mode.js"></script>
+        <script src="carrito.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                updateCartCount();
+            });
+        </script>
+    </div>
+</body>
+</html>

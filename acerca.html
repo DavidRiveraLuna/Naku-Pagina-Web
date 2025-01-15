@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes somos? - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Contenido de la página ¿Quiénes somos? -->
+            <section class="about-section">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/lavanda.jpg" alt="Imagen de la Empresa">
+                    </div>
+                    <div class="about-text">
+                        <h1>¿Quiénes somos?</h1>
+                        <p>Bienvenido a Nakú. Somos un taller de productos artesanales, hechos con ingredientes naturales con la intención de cuidar y apapachar tu piel.</p>
+                        <p>Nuestra misión es ofrecer productos que promuevan el bienestar y el cuidado personal, utilizando ingredientes naturales y procesos sostenibles.</p>
+                        <p>Desde nuestros inicios, hemos estado comprometidos con la excelencia y la satisfacción de nuestros clientes. Gracias por confiar en nosotros.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="location-title">
+                <h2>Nuestra Ubicación</h2>
+            </section>
+            <section id="map" class="map-section">
+                <!-- El mapa de Google Maps se renderizará aquí -->
+            </section>
+            <section class="social-media">
+                <div class="instagram">
+                    <a href="https://www.instagram.com/naku.jabonesartesanales/" target="_blank">
+                        <img src="images/ig.png" alt="Instagram Logo" class="instagram-logo">
+                        <span>@naku.jabonesartesanales</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Carrito de compras JavaScript -->
+        <script src="carrito.js"></script>
+        <!-- Google Maps Initialization -->
+        <script>
+            function initMap() {
+                const ubicacion = { lat: 22.27433907747332, lng: -97.87879342053813 }; // Coordenadas de ejemplo, actualiza con las de tu negocio
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: ubicacion
+                });
+                const marker = new google.maps.Marker({
+                    position: ubicacion,
+                    map: map
+                });
+            }
+        </script>
+         <script src="dark-mode.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtzTjcdPvqlkKAVr5cnow1RYvt_wfrOBk&callback=initMap" async defer></script>
+    </div>
+</body>
+</html>

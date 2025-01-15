@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto 1 - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Contenido de la página Detalle del Producto -->
+            <section class="product-detail-section">
+                <a href="productos.html" class="back-link">&lt; Todos los Productos</a>
+                <div class="product-detail">
+                    <div class="product-image">
+                        <img src="images/producto3.jpg" alt="Jabón Facial - Piel Normal a Mixta">
+                    </div>
+                    <div class="product-info">
+                        <h1>Jabón Facial - Piel Grasa</h1>
+                        <p class="price">$100.00 MXN</p>
+                        <label for="quantity">Cantidad</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1">
+                        <button class="add-to-cart-button" onclick="addToCart('Jabón Facial - Piel Grasa', 100, document.getElementById('quantity').value, 'images/producto3.jpg')">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Carrito de compras JavaScript -->
+        <script src="carrito.js"></script>
+        <script src="dark-mode.js"></script>
+        <script>
+            function addToCart(name, price, quantity, image) {
+                const product = {
+                    name: name,
+                    price: price,
+                    quantity: parseInt(quantity),
+                    fragrances: '',
+                    image: image
+                };
+                addProductToCart(product);
+            }
+        </script>
+    </div>
+</body>
+</html>

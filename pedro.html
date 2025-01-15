@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container text-center">
+                <h1 class="display-4">AQUI ESTA LO QUE ME PIDIÓ MAESTRO</h1>
+                <div class="video-container">
+                    <video controls autoplay loop>
+                        <source src="videos/pedro.mp4" type="video/mp4">
+                        Tu navegador no soporta la etiqueta de video.
+                    </video>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="dark-mode.js"></script>
+        <script src="carrito.js"></script>
+        <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                updateCartCount();
+            });
+        </script>
+    </div>
+</body>
+</html>

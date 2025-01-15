@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pago - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .payment-section {
+            width: 75%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <main class="payment-section">
+            <div class="payment-content">
+                <div class="payment-form">
+                    <h1>Registro de Pago</h1>
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="cardholder-name">Nombre del Titular:</label>
+                            <input type="text" id="cardholder-name" class="form-control" placeholder="Nombre del Titular" pattern="[A-Za-z\s]+" inputmode="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-number">Tarjeta de Crédito:</label>
+                            <input type="text" id="card-number" class="form-control" placeholder="XXXX XXXX XXXX XXXX" pattern="\d*" inputmode="numeric" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Fecha de Expiración:</label>
+                            <input type="text" id="expiry-date" class="form-control" placeholder="MM/AA" pattern="\d{2}/\d{2}" inputmode="numeric" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvc">CVC:</label>
+                            <input type="text" id="cvc" class="form-control" placeholder="CVC" pattern="\d*" inputmode="numeric" required>
+                        </div>
+                        <button id="submit" class="btn btn-primary">Pagar</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='carrito.html'">Regresar al Carrito</button>
+                        <div id="error-message" class="error-message"></div>
+                    </form>
+                </div>
+                <div class="cart-summary">
+                    <h2>Resumen del Carrito</h2>
+                    <div id="cart-items-summary">
+                        <!-- Los productos del carrito se renderizarán aquí -->
+                    </div>
+                    <div class="cart-total">
+                        Total: <span id="cart-total-summary">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="dark-mode.js"></script>
+        <script src="carrito.js"></script>
+        <script src="pago.js"></script>
+        <script>
+            document.getElementById('payment-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const cardholderName = document.getElementById('cardholder-name').value;
+                const cardNumber = document.getElementById('card-number').value;
+                const expiryDate = document.getElementById('expiry-date').value;
+                const cvc = document.getElementById('cvc').value;
+
+                // Expresión regular para validar MM/AA
+                const expiryDatePattern = /^\d{2}\/\d{2}$/;
+
+                if (!cardholderName || !cardNumber || !expiryDate || !cvc) {
+                    document.getElementById('error-message').textContent = 'Por favor, completa todos los campos.';
+                } else if (!expiryDatePattern.test(expiryDate)) {
+                    document.getElementById('error-message').textContent = 'Formato de fecha de expiración inválido. Utiliza MM/AA.';
+                } else {
+                    // Aquí puedes agregar la lógica para procesar el pago
+                    document.getElementById('error-message').textContent = '';
+                    alert('Pago registrado con éxito.');
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

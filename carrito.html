@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        .cart-section {
+            width: 75%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .checkout-container {
+            text-align: right;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="cart-section">
+                <h1>Carrito de Compras</h1>
+                <div class="cart-list">
+                    <!-- Los productos del carrito se renderizarán aquí -->
+                </div>
+                <div class="cart-total">
+                    Total: $0.00
+                </div>
+                <div class="checkout-container">
+                    <button class="checkout-button btn btn-primary" onclick="window.location.href='pago.html'">Proceder al Pago</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Carrito de compras JavaScript -->
+        <script src="carrito.js"></script>
+        <script src="dark-mode.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                updateCartCount();
+                if (document.querySelector('.cart-list')) {
+                    renderCart();
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

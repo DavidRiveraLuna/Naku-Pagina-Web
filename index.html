@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .carousel-inner img {
+            height: 500px; /* Ajusta esta altura según tus necesidades */
+            object-fit: cover; /* Asegura que las imágenes cubran el área del contenedor */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Carrusel -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/foto1.jpg" class="d-block w-100" alt="Foto 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/foto2.jpg" class="d-block w-100" alt="Foto 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/foto3.jpg" class="d-block w-100" alt="Foto 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/foto4.jpg" class="d-block w-100" alt="Foto 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/foto5.jpg" class="d-block w-100" alt="Foto 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/foto6.jpg" class="d-block w-100" alt="Foto 6">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+
+        <main>
+            <!-- Contenido principal de la página -->
+            <div class="product-section">
+                <div class="product">
+                    <img src="images/producto1.jpg" alt="Producto 1">
+                    <p class="price">$110.00</p>
+                    <button class="buy-button" onclick="window.location.href='producto1.html'">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="images/producto2.jpg" alt="Producto 2">
+                    <p class="price">$120.00</p>
+                    <button class="buy-button" onclick="window.location.href='producto2.html'">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="images/producto3.jpg" alt="Producto 3">
+                    <p class="price">$100.00</p>
+                    <button class="buy-button" onclick="window.location.href='producto3.html'">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="images/producto4.jpg" alt="Producto 4">
+                    <p class="price">$110.00</p>
+                    <button class="buy-button" onclick="window.location.href='producto4.html'">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="images/producto5.jpg" alt="Producto 5">
+                    <p class="price">$120.00</p>
+                    <button class="buy-button" onclick="window.location.href='producto5.html'">Comprar</button>
+                </div>
+            </div>
+            <div class="cta-image">
+                <a href="productos.html">
+                    <img src="images/productos.jpg" alt="Ver nuestros productos">
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p><a href="pedro.html" class="footer-link">© 2024 NAKÚ®. Todos los derechos reservados.</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="dark-mode.js"></script>
+    <script src="carrito.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
+            $('.carousel').carousel();
+        });
+    </script>
+</body>
+</html>

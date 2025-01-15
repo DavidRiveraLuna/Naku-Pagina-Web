@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Jabones - Nakú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/producto.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/NAKU JABON Sello.png" alt="Logo de la Empresa">
+                </div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="acerca.html">¿Quiénes somos?</a></li>
+                    <li><a href="productos.html">Nuestros Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">Carrito (<span id="cart-count">0</span>)</a></li>
+                    <li><button id="dark-mode-toggle" class="btn btn-secondary">Modo Oscuro</button></li>    
+                </ul>
+            </nav>
+        </header>
+
+        <main class="creator-section">
+            <div class="creator-content">
+                <div class="creator-image">
+                    <img src="images/creador.jpg" alt="Jabón Personalizable">
+                </div>
+                <div class="creator-options">
+                    <h2>Creador de Jabones</h2>
+                    <p>Selecciona hasta 3 fragancias para personalizar tu jabón:</p>
+                    <form id="fragrance-form">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Floral Jazmín"> Floral de Jazmín
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Naranja"> Naranja
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Mandarina"> Mandarina
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Hierbabuena"> Hierbabuena
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Canela Hojas"> Canela Hojas
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Tea Tree"> Tea Tree
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Romero"> Romero
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Menta Piperita"> Menta Piperita
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Limon Alimenticio"> Limon Alimenticio
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Cedro de Texas"> Cedro de Texas
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Sándalo"> Sándalo
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Lavanda"> Lavanda
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Eucalipto"> Eucalipto
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="fragancia" value="Clavo"> Clavo
+                            </label>
+                        </div>
+
+                        <p class="price" id="price">$120.00</p>
+                        <button type="button" class="add-to-cart-button" onclick="addToCartPersonalized()">Añadir al Carrito</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NAKÚ®. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Carrito de compras JavaScript -->
+        <script src="dark-mode.js"></script>
+        <script src="carrito.js"></script>
+        <script>
+            document.getElementById('fragrance-form').addEventListener('change', function() {
+                const selected = document.querySelectorAll('input[name="fragancia"]:checked');
+                let price = 120;
+                if (selected.length === 2) {
+                    price = 150;
+                } else if (selected.length === 3) {
+                    price = 170;
+                }
+                document.getElementById('price').textContent = `$${price}.00`;
+                if (selected.length > 3) {
+                    alert('Puedes seleccionar hasta 3 fragancias.');
+                    selected[selected.length - 1].checked = false;
+                }
+            });
+
+            function addToCartPersonalized() {
+                const selected = document.querySelectorAll('input[name="fragancia"]:checked');
+                if (selected.length > 3) {
+                    alert('Puedes seleccionar hasta 3 fragancias.');
+                    return;
+                }
+
+                let price = 120;
+                if (selected.length === 2) {
+                    price = 150;
+                } else if (selected.length === 3) {
+                    price = 170;
+                }
+
+                const fragrances = Array.from(selected).map(el => el.value).join(', ');
+
+                const product = {
+                    name: 'Jabón Personalizado',
+                    fragrances: fragrances,
+                    price: price,
+                    quantity: 1,
+                    image: 'images/creador.jpg'
+                };
+
+                addProductToCart(product);
+                alert(`Jabón añadido al carrito con ${selected.length} fragancia(s). Precio: $${price}.00`);
+                updateCartCount();
+            }
+        </script>
+    </div>
+</body>
+</html>
